@@ -60,3 +60,4 @@ if (isset($_POST["mensaje"], $_POST["semilla"])) {
 </body>
 
 </html>
+nigger
