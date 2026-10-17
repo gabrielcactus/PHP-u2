@@ -49,9 +49,9 @@ if (isset($_POST["mensaje"], $_POST["semilla"], $_POST["accion"])) {
 
     $resultado = "";
 
-    if ($accion == "codificar") {
+    if ($accion == "codificar" && $mensaje != "") {
         $resultado = codificar($mensaje, $semilla);
-    } else {
+    } else if ($accion == "decodificar" && $mensaje != "") {
         $resultado = deCodificar($mensaje, $semilla);
     }
 }
@@ -78,14 +78,16 @@ if (isset($_POST["mensaje"], $_POST["semilla"], $_POST["accion"])) {
         <button type="submit" name="accion" value="decodificar">Decodificar</button>
     </form>
     <?php
-    if ($mostrar == true && $accion == "codificar") {
+    if ($mostrar == true && $accion == "codificar" && $mensaje != "") {
         echo "<p>MENSAJE ORIGINAL: {$mensaje}</p><br>
         <p>MENSAJE CODIFICADO CON SEMILLA {$semilla}: {$resultado}</p>
         ";
-    } else if ($mostrar == true && $accion == "decodificar") {
+    } else if ($mostrar == true && $accion == "decodificar" && $mensaje != "") {
         echo "<p>MENSAJE CODIFICADO: {$mensaje}</p><br>
         <p>MENSAJE DECODIFICADO CON SEMILLA {$semilla}: {$resultado}</p>
         ";
+    } else {
+        echo "";
     }
     ?>
 </body>
