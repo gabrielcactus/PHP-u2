@@ -6,6 +6,26 @@
     <title>Document</title>
 </head>
 <body>
-    nigga
+    <table>
+    <?=
+    session_start();
+    for ($vendedor=0;$vendedor != 18;$vendedor++){
+        ?>
+        <tr>
+        <?= 
+        for ($producto=0;$producto != 10;$producto++){
+              ?>
+            <td>
+            </td>
+            <?=         }}
+
+        ?>
+
+        </tr>
+         
+
+    </table>
+    
+    
 </body>
 </html>
