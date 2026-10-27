@@ -161,24 +161,23 @@ if (isset($_POST["reiniciar"])) {
                     echo "<tr>";
                     for ($j = 0; $j < $_SESSION["largo"]; $j++) {
                         echo "<td>";
-                ?>
-                        <?php
+
                         if (isset($_SESSION["pulsados"][$i][$j]) && $_SESSION["tablero"][$i][$j] == 1) {
-                        ?>
-                            <img src="./images_ejer6/vida.png" alt="Pulsado" style="width: 50px; height: 50px;">
-                        <?php
+                        
+                        echo '<img src="./images_ejer6/vida.png" alt="Pulsado" style="width: 50px; height: 50px;">';
+
                         } else if (isset($_SESSION["pulsados"][$i][$j]) && $_SESSION["tablero"][$i][$j] == -1) {
-                        ?>
-                            <img src="./images_ejer6/bomba.png" alt="Pulsado" style="width: 50px; height: 50px;">
-                        <?php
+
+                        echo '<img src="./images_ejer6/bomba.png" alt="Pulsado" style="width: 50px; height: 50px;">';
+
                         } else if (isset($_SESSION["pulsados"][$i][$j]) && $_SESSION["tablero"][$i][$j] == 2) {
-                        ?>
-                            <img src="./images_ejer6/tesoro.png" alt="Pulsado" style="width: 50px; height: 50px;">
-                        <?php
+                            
+                        echo '<img src="./images_ejer6/tesoro.png" alt="Pulsado" style="width: 50px; height: 50px;">';
+                        
                         } else if (isset($_SESSION["pulsados"][$i][$j]) && $_SESSION["tablero"][$i][$j] == 0) {
-                        ?>
-                            <img src="./images_ejer6/vacio.png" alt="Pulsado" style="width: 50px; height: 50px;">
-                        <?php
+                        
+                        echo '<img src="./images_ejer6/vacio.png" alt="Pulsado" style="width: 50px; height: 50px;">';
+                        
                         } else if (!$_SESSION["ganado"] && !$_SESSION["perdido"]) {
                         ?>
                             <form action='<?= $_SERVER["PHP_SELF"] ?>' method="post">
@@ -188,9 +187,9 @@ if (isset($_POST["reiniciar"])) {
                             </form>
                         <?php
                         } else {
-                            ?>
-                            <img src="./images_ejer6/inicial.png" alt="Pulsado" style="width: 50px; height: 50px;">
-                            <?php
+
+                        echo '<img src="./images_ejer6/inicial.png" alt="Pulsado" style="width: 50px; height: 50px;">';
+
                         }
                         ?>
                 <?php

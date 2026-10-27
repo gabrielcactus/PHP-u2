@@ -1,31 +1,52 @@
+<?php
+session_start();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <table>
-    <?=
-    session_start();
-    for ($vendedor=0;$vendedor != 18;$vendedor++){
-        ?>
-        <tr>
-        <?= 
-        for ($producto=0;$producto != 10;$producto++){
-              ?>
-            <td>
-            </td>
-            <?=         }}
+    <table border="1" style="margin: 20px 0; border-radius: 8px; border-spacing: 0; overflow: hidden;">
+        <tbody>
+            <?php
 
-        ?>
+                    echo "<td>";
+                    print "Vendedores";
+                    echo "</td>";
+            for ($i = 1; $i < 11; $i++) {
+                    echo "<td>";
+                    print "Producto $i";
+                    echo "</td>";
+            }
 
-        </tr>
-         
-
+            if (isset($_SESSION["lista"])) {
+                for ($vendedores = 0; $vendedores < 18; $vendedores++) {
+                    echo "<tr>";
+                    echo "<td>";
+                    print_r($_SESSION["vendedores"][$vendedores]);
+                    echo "</td>";
+                    for ($productos = 0; $productos < 10; $productos++) {
+                        echo "<td>";
+                        print_r($_SESSION["lista"][$vendedores][$productos]);
+                        echo "</td>";
+                    }
+                    echo "</tr>";
+                }
+                echo "</tr>";
+            }
+            ?>
+        </tbody>
     </table>
-    
-    
+
+
 </body>
+
 </html>
