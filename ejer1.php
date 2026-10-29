@@ -46,6 +46,7 @@ if (isset($_POST["mensajeB"], $_POST["semillaB"], $_POST["accionB"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -55,8 +56,8 @@ if (isset($_POST["mensajeB"], $_POST["semillaB"], $_POST["accionB"])) {
         <input type="text" name="mensajeA" id="mensajeA">
         <label for="semillaA">Semilla (formato numérico): </label>
         <input type="number" name="semillaA" id="semillaA">
-        <button type="submit" name="accionA" value="codificarA">Codificar</button>
-        <button type="submit" name="accionA" value="decodificarA">Decodificar</button>
+        <button type="submit" name="accionA" value="codificarA" class="btn btn-primary">Codificar</button>
+        <button type="submit" name="accionA" value="decodificarA" class="btn btn-secondary">Decodificar</button>
     </form>
     <?php
     if ($mostrarA == true && $accion == "codificarA" && $mensaje != "" && $semilla != null) {
@@ -77,8 +78,8 @@ if (isset($_POST["mensajeB"], $_POST["semillaB"], $_POST["accionB"])) {
         <input type="text" name="mensajeB" id="mensajeB">
         <label for="semillaB">Semilla (con letras): </label>
         <input type="text" name="semillaB" id="semillaB">
-        <button type="submit" name="accionB" value="codificarB">Codificar</button>
-        <button type="submit" name="accionB" value="decodificarB">Decodificar</button>
+        <button type="submit" name="accionB" value="codificarB" class="btn btn-primary">Codificar</button>
+        <button type="submit" name="accionB" value="decodificarB" class="btn btn-secondary">Decodificar</button>
     </form>
     <?php
     if ($mostrarB == true && $accion == "codificarB" && $mensaje != "" && $semilla != null) {
