@@ -139,9 +139,9 @@ if (isset($_POST["reiniciar"])) {
         <p>Introduce las dimensiones: (entre 5x5 y 15x15)</p>
         <form action="<?= $_SERVER["PHP_SELF"] ?>" method="post">
             <label for="largo">Largo del tablero: </label>
-            <input type="number" name="largo" id="largo">
+            <input type="number" name="largo" id="largo" placeholder="5, 10, 15...">
             <label for="alto">Alto del tablero: </label>
-            <input type="number" name="alto" id="alto">
+            <input type="number" name="alto" id="alto" placeholder="5, 10, 15...">
             <button type="submit" name="dimensiones" class="btn btn-primary">Crear tablero</button>
         </form>
     <?php
