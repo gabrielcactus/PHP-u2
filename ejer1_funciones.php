@@ -121,14 +121,14 @@ function comprobarSemilla1(string $semilla): bool
 
 function comprobarSemilla2(string $semilla): bool
 {
-    if (is_null($semilla)) {
+    if (is_null($semilla) || $semilla == "" || $semilla == " ") {
         return false;
     }
 
     $abecedario = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     $semilla = strtoupper($semilla);
     for ($i = 0; $i < strlen($semilla); $i++) {
-        if (!array_search($semilla[$i], $abecedario, true) === false && $semilla[$i] != " " || is_numeric($semilla[$i])) {
+        if ((array_search($semilla[$i], $abecedario, true) === false && $semilla[$i] != " ") || is_numeric($semilla[$i])) {
             return false;
         }
     }
