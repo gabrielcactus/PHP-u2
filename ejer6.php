@@ -80,9 +80,9 @@ if (isset($_POST["largo"], $_POST["alto"], $_POST["dimensiones"])) {
     $_SESSION["largo"] = $_POST["largo"];
     $_SESSION["alto"] = $_POST["alto"];
 
-    if ($_SESSION["largo"] < 5 || $_SESSION["alto"] < 5) {
+    if ($_SESSION["largo"] < 5 || $_SESSION["alto"] < 5 || $_SESSION["largo"] > 15 || $_SESSION["alto"] > 15) {
         $tableroCreado = false;
-        echo "<p style='color:red;'>Error: Ambas dimensiones han de ser mínimo de 5x5</p>";
+        echo "<p style='color:red;'>Error: Ambas dimensiones han de ser entre 5x5 y 15x15</p>";
     } else if (!empty($_SESSION["alto"]) && !empty($_SESSION["largo"])) {
         $tableroCreado = true;
         crearTablero($_POST["alto"], $_POST["largo"]);
@@ -129,19 +129,20 @@ if (isset($_POST["reiniciar"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
     <?php
     if (!$tableroCreado) {
     ?>
-        <p>Introduce las dimensiones: (al menos 5x5)</p>
+        <p>Introduce las dimensiones: (entre 5x5 y 15x15)</p>
         <form action="<?= $_SERVER["PHP_SELF"] ?>" method="post">
             <label for="largo">Largo del tablero: </label>
             <input type="number" name="largo" id="largo">
             <label for="alto">Alto del tablero: </label>
             <input type="number" name="alto" id="alto">
-            <button type="submit" name="dimensiones">Crear tablero</button>
+            <button type="submit" name="dimensiones" class="btn btn-primary">Crear tablero</button>
         </form>
     <?php
     }
@@ -199,7 +200,7 @@ if (isset($_POST["reiniciar"])) {
                 }
                 ?>
                 <form action="<?= $_SERVER["PHP_SELF"] ?>" method="post">
-                    <button type="submit" name="reiniciar">Reiniciar</button>
+                    <button type="submit" name="reiniciar" class="btn btn-danger">Reiniciar</button>
                 </form>
             <?php
         }
