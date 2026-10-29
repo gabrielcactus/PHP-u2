@@ -6,16 +6,16 @@ $mostrarA = false;
 if (isset($_POST["mensajeA"], $_POST["semillaA"], $_POST["accionA"])) {
     $mostrarA = true;
 
-    $mensaje = $_POST["mensajeA"];
-    $semilla = $_POST["semillaA"];
-    $accion = $_POST["accionA"];
+    $mensajeA = $_POST["mensajeA"];
+    $semillaA = $_POST["semillaA"];
+    $accionA = $_POST["accionA"];
 
-    $resultado = "";
+    $resultadoA = "";
 
-    if ($accion == "codificarA" && comprobarSemilla1($semilla) && comprobarMensaje($mensaje)) {
-        $resultado = codificarA($mensaje, $semilla);
-    } else if ($accion == "decodificarA" && comprobarSemilla1($semilla) && comprobarMensaje($mensaje)) {
-        $resultado = deCodificarA($mensaje, $semilla);
+    if ($accionA == "codificarA" && comprobarSemilla1($semillaA) && comprobarMensaje($mensajeA)) {
+        $resultadoA = codificarA($mensajeA, $semillaA);
+    } else if ($accionA == "decodificarA" && comprobarSemilla1($semillaA) && comprobarMensaje($mensajeA)) {
+        $resultadoA = deCodificarA($mensajeA, $semillaA);
     }
 }
 
@@ -24,16 +24,16 @@ $mostrarB = false;
 if (isset($_POST["mensajeB"], $_POST["semillaB"], $_POST["accionB"])) {
     $mostrarB = true;
 
-    $mensaje = $_POST["mensajeB"];
-    $semilla = $_POST["semillaB"];
-    $accion = $_POST["accionB"];
+    $mensajeB = $_POST["mensajeB"];
+    $semillaB = $_POST["semillaB"];
+    $accionB = $_POST["accionB"];
 
-    $resultado = "";
+    $resultadoB = "";
 
-    if ($accion == "codificarB" && comprobarSemilla2($semilla) && comprobarMensaje($mensaje)) {
-        $resultado = codificarB($mensaje, $semilla);
-    } else if ($accion == "decodificarB" && comprobarSemilla2($semilla) && comprobarMensaje($mensaje)) {
-        $resultado = deCodificarB($mensaje, $semilla);
+    if ($accionB == "codificarB" && comprobarSemilla2($semillaB) && comprobarMensaje($mensajeB)) {
+        $resultadoB = codificarB($mensajeB, $semillaB);
+    } else if ($accionB == "decodificarB" && comprobarSemilla2($semillaB) && comprobarMensaje($mensajeB)) {
+        $resultadoB = deCodificarB($mensajeB, $semillaB);
     }
 }
 
@@ -53,25 +53,25 @@ if (isset($_POST["mensajeB"], $_POST["semillaB"], $_POST["accionB"])) {
     <h2>CODIFICACIÓN OPCIÓN A</h2>
     <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
         <label for="mensajeA">Mensaje: </label>
-        <input type="text" name="mensajeA" id="mensajeA">
+        <input type="text" name="mensajeA" id="mensajeA" value="<?= isset($_POST["mensajeA"])?$_POST["mensajeA"]:"" ?>" placeholder="Primer mensaje...">
         <label for="semillaA">Semilla (formato numérico, número superior a 0): </label>
-        <input type="number" name="semillaA" id="semillaA">
+        <input type="number" name="semillaA" id="semillaA" placeholder="1, 2, 3...">
         <button type="submit" name="accionA" value="codificarA" class="btn btn-primary">Codificar</button>
         <button type="submit" name="accionA" value="decodificarA" class="btn btn-secondary">Decodificar</button>
     </form>
     <?php
-    if ($mostrarA == true && $accion == "codificarA") {
-        if ($resultado != "") {
-            echo "<p>MENSAJE ORIGINAL: {$mensaje}</p><br>
-        <p>MENSAJE CODIFICADO CON SEMILLA {$semilla}: {$resultado}</p>
+    if ($mostrarA == true && $accionA == "codificarA") {
+        if ($resultadoA != "") {
+            echo "<p>MENSAJE ORIGINAL: {$mensajeA}</p><br>
+        <p>MENSAJE CODIFICADO CON SEMILLA {$semillaA}: {$resultadoA}</p>
         ";
         } else {
             echo "<p style='color:red;'>Error: no se ha podido codificar. Semilla inválida o mensaje o semilla vacíos.</p>";
         }
-    } else if ($mostrarA == true && $accion == "decodificarA") {
-        if ($resultado != "") {
-            echo "<p>MENSAJE CODIFICADO: {$mensaje}</p><br>
-        <p>MENSAJE DECODIFICADO CON SEMILLA {$semilla}: {$resultado}</p>
+    } else if ($mostrarA == true && $accionA == "decodificarA") {
+        if ($resultadoA != "") {
+            echo "<p>MENSAJE CODIFICADO: {$mensajeA}</p><br>
+        <p>MENSAJE DECODIFICADO CON SEMILLA {$semillaA}: {$resultadoA}</p>
         ";
         } else {
             echo "<p style='color:red;'>Error: no se ha podido decodificar. Semilla inválida o mensaje o semilla vacíos.</p>";
@@ -84,25 +84,25 @@ if (isset($_POST["mensajeB"], $_POST["semillaB"], $_POST["accionB"])) {
     <h2>CODIFICACIÓN OPCIÓN B</h2>
     <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
         <label for="mensajeB">Mensaje: </label>
-        <input type="text" name="mensajeB" id="mensajeB">
+        <input type="text" name="mensajeB" id="mensajeB" value="<?= isset($_POST["mensajeB"])?$_POST["mensajeB"]:"" ?>" placeholder="Segundo mensaje...">
         <label for="semillaB">Semilla (con letras): </label>
-        <input type="text" name="semillaB" id="semillaB">
+        <input type="text" name="semillaB" id="semillaB" placeholder="ABC...">
         <button type="submit" name="accionB" value="codificarB" class="btn btn-primary">Codificar</button>
         <button type="submit" name="accionB" value="decodificarB" class="btn btn-secondary">Decodificar</button>
     </form>
     <?php
-    if ($mostrarB == true && $accion == "codificarB") {
-        if ($resultado != "") {
-            echo "<p>MENSAJE ORIGINAL: {$mensaje}</p><br>
-        <p>MENSAJE CODIFICADO CON SEMILLA {$semilla}: {$resultado}</p>
+    if ($mostrarB == true && $accionB == "codificarB") {
+        if ($resultadoB != "") {
+            echo "<p>MENSAJE ORIGINAL: {$mensajeB}</p><br>
+        <p>MENSAJE CODIFICADO CON SEMILLA {$semillaB}: {$resultadoB}</p>
         ";
         } else {
             echo "<p style='color:red;'>Error: no se ha podido codificar. Semilla inválida o mensaje o semilla vacíos.</p>";
         }
-    } else if ($mostrarB == true && $accion == "decodificarB") {
-        if ($resultado != "") {
-            echo "<p>MENSAJE CODIFICADO: {$mensaje}</p><br>
-        <p>MENSAJE DECODIFICADO CON SEMILLA {$semilla}: {$resultado}</p>
+    } else if ($mostrarB == true && $accionB == "decodificarB") {
+        if ($resultadoB != "") {
+            echo "<p>MENSAJE CODIFICADO: {$mensajeB}</p><br>
+        <p>MENSAJE DECODIFICADO CON SEMILLA {$semillaB}: {$resultadoB}</p>
         ";
         } else {
             echo "<p style='color:red;'>Error: no se ha podido decodificar. Semilla inválida o mensaje o semilla vacíos.</p>";
