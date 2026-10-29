@@ -21,7 +21,6 @@ if(isset($_POST["total"])){
     exit;
 }
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,8 +30,11 @@ if(isset($_POST["total"])){
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="total.php" method="post" style="display: inline;">
         <button type="submit" name="total">Ver total</button>
+    </form>
+    <form action="modificar.php" method="post" style="display: inline;">
+        <button type="submit" name="modificar">Modificar ventas</button>
     </form>
 </body>
 </html>

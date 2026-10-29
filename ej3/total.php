@@ -1,6 +1,15 @@
 <?php
 session_start();
 
+if (!isset($_POST["total"])) {
+    header("location:mainpage.php");
+    exit;
+}
+
+if (isset($_POST["inicio"])) {
+    header("location:mainpage.php");
+    exit;
+}
 
 ?>
 
@@ -14,6 +23,9 @@ session_start();
 </head>
 
 <body>
+    <form action="<?= $_SERVER["PHP_SELF"] ?>" method="post">
+        <button type="submit" name="inicio">Volver a la página principal</button>
+    </form>
     <table border="1" style="margin: 20px 0; border-radius: 8px; border-spacing: 0; overflow: hidden;">
         <tbody>
             <?php
@@ -45,8 +57,6 @@ session_start();
             ?>
         </tbody>
     </table>
-
-
 </body>
 
 </html>
