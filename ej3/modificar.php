@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION["mensaje"] = "";
 
 if (!isset($_SESSION["mensaje"])) {
     $_SESSION["mensaje"] = "";
@@ -12,6 +13,7 @@ if (!isset($_POST["modificar"])) {
 }
 
 if (isset($_POST["inicio"])) {
+    $_SESSION["mensaje"] = "";
     header("location:mainpage.php");
     exit;
 }

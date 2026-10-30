@@ -2,11 +2,13 @@
 session_start();
 
 if (!isset($_POST["total"])) {
+    $_SESSION["mensaje"] = "";
     header("location:mainpage.php");
     exit;
 }
 
 if (isset($_POST["inicio"])) {
+    $_SESSION["mensaje"] = "";
     header("location:mainpage.php");
     exit;
 }
